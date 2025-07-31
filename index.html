@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To My Cutie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Great Vibes', cursive;
+      background-color: #ffc0cb; /* Baby pink */
+      overflow: hidden;
+    }
+
+    .card {
+      width: 100vw;
+      height: 100vh;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: opacity 1s ease-in-out;
+      font-size: 28px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #ffc0cb;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .visible {
+      display: flex;
+      flex-direction: column;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 20px;
+      background-color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f8d0e2;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: float 10s infinite;
+      font-size: 20px;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(20px);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        font-size: 22px;
+        padding: 20px 15px;
+      }
+
+      button {
+        font-size: 18px;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card visible page">Hi Baby... 💖</div>
+  <div class="card page">I know we’re far apart right now…</div>
+  <div class="card page">But every time I close my eyes, I’m with you.</div>
+  <div class="card page">Even with miles between us, I still feel your presence every night… maybe it’s my imagination... or maybe it’s how badly I crave you.</div>
+  <div class="card page">If your lips were in front of me right now, I wouldn't be watching anime… I'd be silencing them with mine.</div>
+  <div class="card page">I don’t dream of perfect nights anymore — I dream of imperfect ones with you… messy hair, tangled sheets, and my name moaned into the dark.</div>
+  <div class="card page">I miss you more than words can say. 🌙</div>
+  <div class="card page">But this distance can’t hide how much I adore you. 💫</div>
+  <div class="card page">Forever yours, no matter the miles. 💋</div>
+  <div class="card page">Come back to me soon, my love. 💌</div>
+  <div class="card page">Till then, keep me in your dreams. 🌹</div>
+  <div class="card page">I love you, Souparna. Endlessly. ❤️</div>
+
+  <button onclick="nextPage()">Next</button>
+
+  <script>
+    const pages = document.querySelectorAll('.card');
+    let current = 0;
+
+    function nextPage() {
+      if (current < pages.length - 1) {
+        pages[current].classList.remove('visible');
+        current++;
+        pages[current].classList.add('visible');
+      }
+    }
+
+    // Create floating red hearts
+    const totalHearts = 30;
+    for (let i = 0; i < totalHearts; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 10 + "s";
+      heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
